@@ -1,0 +1,22 @@
+Execution Timing Report
+============================================================
+
+Function Execution Times:
+load_roi                            : 0.0001 seconds
+create_table_if_not_exists          : 0.0034 seconds
+update_location                     : 0.0035 seconds
+process_detections                  : 0.5461 seconds
+insert_event                        : 0.3111 seconds
+run                                 : 68.9639 seconds
+run_all_videos                      : 69.0762 seconds
+
+Per-Video Execution Times:
+1_simple.avi                        : 52.3001 seconds
+2_fish_eye.mp4                      : 16.7297 seconds
+
+Total Video Processing Time         : 69.0298 seconds
+Total Program Execution Time      : 69.0763 seconds
+
+Frame Count Per Video:
+1_simple.avi                        : 2582 frames
+2_fish_eye.mp4                      : 354 frames
