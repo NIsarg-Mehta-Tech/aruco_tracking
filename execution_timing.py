@@ -65,7 +65,7 @@ def write_report():
 
         if program_end_time:
             total_program_time = program_end_time - program_start_time
-            f.write(f"Total Program Execution Time      : {total_program_time:.4f} seconds\n")
+            f.write(f"Total Program Execution Time        : {total_program_time:.4f} seconds\n")
 
         f.write("\nFrame Count Per Video:\n")
         for video_id, count in frame_counts.items():
