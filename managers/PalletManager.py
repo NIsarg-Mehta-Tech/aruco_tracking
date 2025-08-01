@@ -11,12 +11,12 @@ class PalletManager:
     @time_function
     def process_detections(self, detected_list, video_id, timestamp):
         """
-        detected_list: list of tuples (aruco_id, center_x, center_y)
-        video_id: string
-        timestamp: datetime or timestamp of event
+            detected_list: list of tuples (aruco_id, center_x, center_y)
+            video_id: string
+            timestamp: datetime or timestamp of event
 
-        Returns:
-            List of tuples: (aruco_id, event, roi_index)
+            Returns:
+                List of tuples: (aruco_id, event, roi_index)
         """
         events = []
 

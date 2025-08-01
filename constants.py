@@ -7,6 +7,7 @@ VIDEO_PATHS = {
 # ROI JSON path
 ROI_JSON_PATH = "rois.json"
 
+# Database configuration
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
@@ -14,11 +15,13 @@ DB_CONFIG = {
     "database": "aruco_detection"
 }
 
+# ROI colors
 ROI_COLORS = {
     1: (0, 255, 0),   # Green for ROI 1
     2: (255, 0, 0),   # Blue for ROI 2
 }
 
+# Event colors
 EVENT_COLORS = {
     "IN": (0, 255, 0),   # Green text for IN
     "OUT": (0, 0, 255),  # Red text for OUT

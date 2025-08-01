@@ -9,6 +9,13 @@ class DatabaseManager:
 
     @time_function
     def create_table_if_not_exists(self):
+        """
+            This module defines the DatabaseManager class, responsible for managing all database-related operations for the ArUco marker detection system. It handles:
+                - Establishing a connection to the MySQL database using the given configuration.
+                - Creating the required table (`aruco_detection`) if it does not already exist.
+                - Inserting detection event records (video ID, marker ID, event type, timestamp).
+                - Tracking function execution time for performance logging.
+        """
         # Create table if not exists with the required schema
         query = """
         CREATE TABLE IF NOT EXISTS aruco_detection (

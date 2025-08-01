@@ -17,6 +17,15 @@ class VideoManage:
 
     @time_function
     def run_all_videos(self):
+        """
+            This module handles:
+                - Loading ROI definitions from a JSON file.
+                - Managing the execution of multiple video files sequentially.
+                - Spawning a thread for each video using the VideoObject class.
+                - Scaling ROI points based on video resolution.
+                - Displaying processed video frames in the main thread.
+                - Coordinating execution timing using utilities from execution_timing.py.
+        """
         self.load_roi()
 
         for video_name, video_path in VIDEO_PATHS.items():

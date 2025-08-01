@@ -22,6 +22,17 @@ class VideoObject(threading.Thread):
 
     @time_function
     def run(self):
+        """
+            This file defines the VideoObject class, which processes a single video file in a separate thread.
+                Its responsibilities include:
+                    - Reading video frames.
+                    - Detecting ArUco markers using OpenCV.
+                    - Tracking marker movement across predefined ROIs (Regions of Interest).
+                    - Determining IN/OUT events based on marker transitions.
+                    - Overlaying detection, ROI outlines, marker IDs, and IN/OUT counts on the video frames.
+                    - Sending processed frames to a shared queue for display in the main thread.
+                    - Logging events to the database via PalletManager and DatabaseManager.
+        """
         cap = cv.VideoCapture(self.video_path)
         print(f"[{self.video_id}] Thread started")
         if not cap.isOpened():
@@ -44,7 +55,7 @@ class VideoObject(threading.Thread):
             # Draw ROI polygons
             for i, poly in enumerate(self.roi_polygons, start=1):
                 pts = np.array([[int(x), int(y)] for x, y in poly.exterior.coords], np.int32)
-                color = self.ROI_COLORS.get(i, (0, 255, 0))
+                color = ROI_COLORS.get(i, (0, 255, 0))
                 cv.polylines(frame, [pts], True, color, 2)
                 centroid = poly.centroid
                 cv.putText(frame, f"ROI {i}", (int(centroid.x), int(centroid.y)), cv.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
@@ -79,7 +90,7 @@ class VideoObject(threading.Thread):
                 centroid = poly.centroid
                 text_pos = (int(centroid.x), int(centroid.y))
 
-                color = self.EVENT_COLORS.get(event, (0, 255, 0))
+                color = EVENT_COLORS.get(event, (0, 255, 0))
                 cv.putText(frame, f"ID {aruco_id} {event}", text_pos, cv.FONT_HERSHEY_SIMPLEX, 1, color, 2)
                 if event.upper() == "IN":
                     in_count += 1
